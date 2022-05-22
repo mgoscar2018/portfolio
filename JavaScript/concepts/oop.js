@@ -1,0 +1,78 @@
+// Object Oriented Programming (OOP) concepts
+
+/*
+Classes 
+    Are user-defined data types that act as the blueprint for individual objects, attributes and methods.
+*/
+class Empleado{
+    constructor(nombre, sueldo){
+        /*Attributes 
+            Are defined in the class template and represent the state of an object. Objects will have data 
+            stored in the attributes field. Class attributes belong to the class itself.
+        */
+        this._nombre = nombre;  //Atributos
+        this._sueldo = sueldo;
+    }
+/*
+Methods 
+    Are functions that are defined inside a class that describe the behaviors of an object. Each method 
+    contained in class definitions starts with a reference to an instance object. Additionally, the 
+    subroutines contained in an object are called instance methods. Programmers use methods for reusability 
+    or keeping functionality encapsulated inside one object at a time.
+*/
+    obtenerDetalles(){
+        return `Empleado: nombre: ${this._nombre}, sueldo: ${this._sueldo}`;
+    }
+
+    get nombre() { return this._nombre; }
+    set nombre(nombre) { this._nombre = nombre; }
+
+    get sueldo() { return this._sueldo; }
+    set sueldo(sueldo) { return this._sueldo; }
+}
+
+/*
+Inheritance. 
+    Classes can reuse code from other classes. Relationships and subclasses between objects can be assigned, 
+    enabling developers to reuse common logic while still maintaining a unique hierarchy. This property of OOP 
+    forces a more thorough data analysis, reduces development time and ensures a higher level of accuracy.
+*/
+class Gerente extends Empleado{ // Herencia
+    constructor(nombre, sueldo, departamento){
+        super(nombre, sueldo);
+        this._departamento = departamento;
+    }
+    
+    obtenerDetalles(){ //Sobreescritura (overriding)
+        return `Gerente: ${super.obtenerDetalles()} depto: ${this._departamento}`;
+    }
+
+    get departamento() { return this._departamento; }
+    set departamento(departamento) { this._departamento = departamento; }
+}
+
+/*
+Objects 
+    Are instances of a class created with specifically defined data. Objects can correspond to real-world 
+    objects or an abstract entity. When class is defined initially, the description is the only object that 
+    is defined.
+*/
+let empleado1 = new Empleado('Juan', 3000); //Objetos
+let gerente1 = new Gerente('Carlos', 5000, 'Sistemas');
+
+console.log( empleado1.obtenerDetalles() );
+console.log( gerente1.obtenerDetalles() );
+
+/* 
+Polymorphism. 
+    Objects are designed to share behaviors and they can take on more than one form. The program will 
+    determine which meaning or usage is necessary for each execution of that object from a parent class, 
+    reducing the need to duplicate code. A child class is then created, which extends the functionality 
+    of the parent class. Polymorphism allows different types of objects to pass through the same interface.
+*/
+function imprimir(tipo) { //Polimorfismo, 
+    console.log(tipo.obtenerDetalles()); //un mismo metodo que sirve para obtener detalles de un objeto Empleado o Gerente
+}
+
+imprimir(gerente1);
+imprimir(empleado1);
