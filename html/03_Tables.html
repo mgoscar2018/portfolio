@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tables with HTML and CSS</title>
+    <link href="css/tables.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap" rel="stylesheet">
+</head>
+<body>
+    <p>Para crear tablas en HTML se utilizan las siguientes etiquetas: <b>table</b>, <b>caption</b>, <b>tr</b> (table row), <b>th</b> (table head) y <b>td</b> (table data).</p>
+    Código HTML: <br/>
+    <code>
+        <pre>
+            &lt;table border="1"&gt;
+                &lt;caption&gt;Título de la tabla&lt;/caption&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Name&lt;/th&gt;
+                    &lt;th&gt;Lastname&lt;/th&gt;
+                    &lt;th&gt;Email&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Oscar&lt;/td&gt;
+                    &lt;td&gt;Miranda&lt;/td&gt;
+                    &lt;td&gt;mgoscar@gmail.com&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Homer&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;hsimpson@mail.com&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Bart&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;bsimpson@mail.com&lt;/td&gt;
+                &lt;tr&gt; 
+                &lt;tr&gt;
+                    &lt;td&gt;Lisa&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;lsimpson@mail.com&lt;/td&gt;
+                &lt;tr&gt;                
+            &lt;/table&gt;
+        </pre>
+    </code>
+    RESULTADO: <br/>
+    <table border="1">
+        <caption>Título de la tabla</caption>
+        <tr>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>Oscar</td>
+            <td>Miranda</td>
+            <td>mgoscar@gmail.com</td>
+        </tr>
+        <tr>
+            <td>Homer</td>
+            <td>Simpson</td>
+            <td>hsimpson@mail.com</td>
+        </tr>
+        <tr>
+            <td>Bart</td>
+            <td>Simpson</td>
+            <td>bsimpson@mail.com</td>
+        </tr>
+        <tr>
+            <td>Lisa</td>
+            <td>Simpson</td>
+            <td>lsimpson@mail.com</td>
+        </tr>
+    </table>
+    <p>Con las etiquetas <b>colspan</b> y <b>rowspan</b> podemos fusionar celdas:</p>
+    Código HTML: <br/>
+    <code>
+        <pre>
+            &lt;table border="1"&gt;
+                &lt;caption&gt;Título de la tabla&lt;/caption&gt;
+                &lt;tr&gt;
+                    &lt;th <mark>colspan="2"</mark>&gt;Name&lt;/th&gt;
+                    &lt;th&gt;Lastname&lt;/th&gt;
+                    &lt;th&gt;Email&lt;/th&gt;
+                    &lt;th&gt;Grupo&lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Oscar&lt;/td&gt;
+                    &lt;td&gt;Miranda&lt;/td&gt;
+                    &lt;td&gt;mgoscar@gmail.com&lt;td&gt;
+                    &lt;td&gt;A&lt;td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Homer&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;hsimpson@mail.com&lt;/td&gt;
+                    &lt;td <mark>rowspan="2"</mark>&gt;B&lt;td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;Bart&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;bsimpson@mail.com&lt;/td&gt;
+                &lt;tr&gt; 
+                &lt;tr&gt;
+                    &lt;td&gt;Lisa&lt;/td&gt;
+                    &lt;td&gt;Simpson&lt;/td&gt;
+                    &lt;td&gt;lsimpson@mail.com&lt;/td&gt;
+                    &lt;td&gt;C&lt;td&gt;
+                &lt;tr&gt;                
+            &lt;/table&gt;
+        </pre>
+    </code>
+    RESULTADO: <br/>
+    <table border="1">
+        <caption>Título de la tabla</caption>
+        <tr>
+            <th colspan="2">Name</th>            
+            <th>Email</th>
+            <th>Grupo</th>
+        </tr>
+        <tr>
+            <td>Oscar</td>
+            <td>Miranda</td>
+            <td>mgoscar@gmail.com</td>
+            <td>A</td>
+        </tr>
+        <tr>
+            <td>Homer</td>
+            <td>Simpson</td>
+            <td>hsimpson@mail.com</td>
+            <td rowspan="2">B</td>
+        </tr>
+        <tr>
+            <td>Bart</td>
+            <td>Simpson</td>
+            <td>bsimpson@mail.com</td>
+        </tr>
+        <tr>
+            <td>Lisa</td>
+            <td>Simpson</td>
+            <td>lsimpson@mail.com</td>
+            <td>C</td>
+        </tr>
+    </table>
+    <p>Aplicando estilos CSS, podemos mejorar mucho visualmente la información:  </p>
+    Código CSS utilizado:<br/>
+    <code>
+        <pre>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse; /* colapsa el borde de la tabla */
+                padding: 5px;
+            }
+            
+            caption {
+                color: #e63946;
+                font-family: 'Grape Nuts'; /*https://fonts.google.com/specimen/Grape+Nuts*/
+                font-size: 20px;
+                line-height: 20px;
+            }
+            
+            th {
+                color: #f1faee;
+                background-color: #1d3557;    
+            }
+            
+            /*Renglones pares */
+            tr:nth-child(even) {
+                background-color: #f1faee;
+            }
+            
+            /*Renglones impares */
+            tr:nth-child(odd) {
+                background-color: #a8dadc;
+            }
+        </pre>
+    </code>
+    RESULTADO: <br/>
+    <table class="x">
+        <caption class="x">Título de la tabla</caption>
+        <tr class="x">
+            <th class="x">Name</th>
+            <th class="x">Lastname</th>
+            <th class="x">Email</th>
+        </tr>
+        <tr class="x">
+            <td class="x">Oscar</td>
+            <td class="x">Miranda</td>
+            <td class="x">mgoscar@gmail.com</td>
+        </tr>
+        <tr class="x">
+            <td class="x">Homer</td>
+            <td class="x">Simpson</td>
+            <td class="x">hsimpson@mail.com</td>
+        </tr>
+        <tr class="x">
+            <td class="x">Bart</td>
+            <td class="x">Simpson</td>
+            <td class="x">bsimpson@mail.com</td>
+        </tr>
+        <tr class="x">
+            <td class="x">Lisa</td>
+            <td class="x">Simpson</td>
+            <td class="x">lsimpson@mail.com</td>
+        </tr>
+    </table>
+    <p><mark>NOTA:</mark> La tipografía del título de la tabla fue cambiada por una elegida del sitio de <a href="https://fonts.google.com/specimen/Grape+Nuts">GOOGLE FONTS</a></p>
+</body>
+</html>

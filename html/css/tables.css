@@ -1,0 +1,27 @@
+table.x, th.x, td.x {
+    border: 1px solid black;
+    border-collapse: collapse; /* colapsa el borde de la tabla */
+    padding: 5px;
+}
+
+caption.x {
+    color: #e63946;
+    font-family: 'Grape Nuts'; /*https://fonts.google.com/specimen/Grape+Nuts*/
+    font-size: 20px;
+    line-height: 20px;
+}
+
+th.x {
+    color: #f1faee;
+    background-color: #1d3557;    
+}
+
+/*Renglones pares */
+tr.x:nth-child(even) {
+    background-color: #f1faee;
+}
+
+/*Renglones impares */
+tr.x:nth-child(odd) {
+    background-color: #a8dadc;
+}
