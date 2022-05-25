@@ -1,0 +1,23 @@
+p {
+    color: white;
+    background-color: #03045e;
+    padding: 15px;
+    border: 10px solid #0077b6;
+    margin: 20px;
+}
+
+a {
+    display:inline-block; 
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 15px 25px;
+}
+
+a:link, a:visited {
+    background-color: #ff006e;    
+}
+
+a:hover, a:active {
+    background-color: #ffafcc;
+}

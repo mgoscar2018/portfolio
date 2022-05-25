@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicando estilos CSS</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h3>CSS Box Model</h3>
+    <img src="img/CSSBoxModel.png" alt="CSS Box Model" height="250px"><br/>
+    <mark>Utilizando la etiqueta &lt;pre&gt; podemos colocar texto pre-formateado, es decir, respeta espacios, tabulaciones, saltos de línea, etc.</mark>
+    <div>
+        Código CSS utilizado:<br/>
+        <code>
+            <pre>
+                p {
+                    color: white;
+                    background-color: #ff006e;
+                    padding: 15px;
+                    border: 10px solid #ffafcc;
+                    margin: 20px;
+                }
+            </pre>
+        </code>
+        Código HTML: <br/>
+        <code>&lt;p&gt;Contenido del elemento&lt;/p&gt;</code><br/><br/>
+        Resultado: <br/>      
+        <p>Contenido del elemento</p>
+    </div>
+    <div>
+        Modificando el <b>padding</b> y cambiando el color de fondo, podemos lograr que un simple link parezca un botón:<br/>
+        Código CSS:<br/>
+        <code>
+            <pre>
+                a {
+                    display:inline-block; 
+                    text-align: center;
+                    text-decoration: none;
+                    color: white;
+                    padding: 15px 25px;
+                }
+                
+                a:link, a:visited {
+                    background-color: #cdb4db;    
+                }
+                
+                a:hover, a:active {
+                    background-color: #ffc8dd;
+                }
+            </pre>
+        </code>
+        Código HTML: <br/>
+        <code>&lt;a href="01_basic.html"&gt;LINK - CLICK&lt;/a&gt;</code><br/><br/>
+        Resultado: <br/>
+        <a href="01_basic.html">LINK - CLICK</a>
+    </div>
+</body>
+</html>
