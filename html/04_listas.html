@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas en HTML</title>
+    <link rel="stylesheet" href="css/listas.css">
+</head>
+<body>
+    <p> Se tienen 3 tipos de listas:</p>
+    <h4>Listas Ordenadas <b>&lt;ol&gt;</b> (Ordered list)</h4>
+    <code>
+        <pre>
+            &lt;ol&gt;
+                &lt;li&gt;Elemento X&lt;/li&gt;
+                &lt;li&gt;Elemento Y&lt;/li&gt;
+                &lt;li&gt;Elemento Z&lt;/li&gt;
+            &lt;/ol&gt;
+        </pre>
+    </code>
+    <ol>
+        <li>Elemento X</li>
+        <li>Elemento Y</li>
+        <li>Elemento Z</li>
+    </ol>
+    <h4>Listas No Ordenadas <b>&lt;ul&gt;</b> (Unordered list)</h4>
+    <code>
+        <pre>
+            &lt;ul&gt;
+                &lt;li&gt;Elemento X&lt;/li&gt;
+                &lt;li&gt;Elemento Y&lt;/li&gt;
+                &lt;li&gt;Elemento Z&lt;/li&gt;
+            &lt;/ul&gt;
+        </pre>
+    </code>
+    <ul>
+        <li>Elemento X</li>
+        <li>Elemento Y</li>
+        <li>Elemento Z</li>
+    </ul>
+    <h4>Listas de definición <b>&lt;dl&gt;</b> (Description list)</h4>
+    <code>
+        <pre>
+            &lt;dl&gt;
+                &lt;dt&gt;Término X&lt;/dt&gt;
+                &lt;dd&gt;definción X&lt;/dd&gt;
+                &lt;dt&gt;Término Y&lt;/dt&gt;
+                &lt;dd&gt;definción Y&lt;/dd&gt;
+                &lt;dt&gt;Término Z&lt;/dt&gt;
+                &lt;dd&gt;definción Z&lt;/dd&gt;
+            &lt;/dl&gt;
+        </pre>
+    </code>
+    <dl>
+        <dt>Término X</dt>
+        <dd>definción X</dd>
+        <dt>Término Y</dt>
+        <dd>definción Y</dd>
+        <dt>Término Z</dt>
+        <dd>definción Z</dd>
+    </dl>
+    <h4>Aplicando estilos CSS podemos convertir una lista desordenada como esta:</h4>
+    <code>
+        <pre>
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="01_basic.html"&gt;Elementos básicos HTML&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="02_cssBoxModel.html"&gt;Modelo de caja CSS&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="03_Tables.html"&gt;Tablas&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="04_listas.html"&gt;Listas&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        </pre>
+    </code>
+    <ul>
+        <li><a href="01_basic.html">Elementos básicos HTML</a></li>
+        <li><a href="02_cssBoxModel.html">Modelo de caja CSS</a></li>
+        <li><a href="03_Tables.html">Tablas</a></li>
+        <li><a href="04_listas.html">Listas</a></li>
+    </ul>
+    <h4>En un menú como el siguiente:</h4>
+    <code>
+        <pre>
+            ul {
+                list-style-type: none;
+                background-color: #457b9d;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                float: left;
+            }
+            
+            li a{
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                text-decoration: none;
+            }
+            
+            li a:hover{
+                background-color: #1d3557;
+            }
+        </pre>
+    </code>
+    <ul class="menu">
+        <li class="menu"><a class="menu" href="01_basic.html">Elementos básicos HTML</a></li>
+        <li class="menu"><a class="menu" href="02_cssBoxModel.html">Modelo de caja CSS</a></li>
+        <li class="menu"><a class="menu" href="03_Tables.html">Tablas</a></li>
+        <li class="menu"><a class="menu" href="04_listas.html">Listas</a></li>
+    </ul>
+</body>
+</html>
