@@ -25,3 +25,9 @@
 .tablaX tr:nth-child(odd) {
     background-color: #a8dadc;
 }
+
+pre {
+    background-color: #F2F1F1;
+    padding: 3px;
+    border-radius: 5px;
+}

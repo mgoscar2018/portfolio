@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo con TypeScript</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script src="variablesFunciones.js"></script>
+    <script src="classes.js"></script>
+    <h4>Instalar <b>TypeScript</b></h4>
+    <p>Para instalar en Windows, se debe hacer lo siguiente:</p>
+    <ol>
+        <li>Abrir terminal como Administrador</li>
+        <li>Ejecutar el siguiente comando: <code>npm install -g typescript</code></li>
+    </ol>       
+    <h4>Compilar archivo TS</h4>
+    <p>Para compilar un programa ts (typescript), desde la consola se escribe el siguiente comando:<br/>
+        <code>tsc NOMBREARCHIVO.ts</code>
+    </p>
+    <p><mark>NOTA:</mark> En caso de obtener un error como el siguiente <em>"No se puede cargar el archivo NOMBRE_ARCHIVO porque la 
+        ejecución de scripts está deshabilitada en este sistema. Para obtener más información, 
+        consulta el tema about_Execution_Policies..."</em>
+    <ol>
+        <li>Ejecutar windows + R --> gpedit.msc</li>
+        <li>Ir a Plantillas administrativas > Componentes de Windows > Windows PowerShell</li> 
+        <li>Seleccionar Activar la ejecución de scripts, click derecho, editar</li>
+        <li>Seleccionar "Habilitada" y "Permitir todos los scripts", Aplicar</li>
+    </ol>
+    </p>
+    <h4>Inicializar proyecto TypeScript</h4>
+    <p>Escribiendo en consola el comando <code>tsc -init</code> se inicializa un proyecto creando en automático el archivo <b>tsconfig.json</b></p>
+    <h4>Compilación en "Watch Mode"</h4>
+    <p>Con el comando <code>tsc -w</code> automáticamente todos los cambios que realicemos en el archivo "ts" serán compilados y actualizados en el archivo "js" resultante.</p>
+</body>
+</html>

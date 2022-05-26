@@ -21,3 +21,9 @@
 .menu a:hover{
     background-color: #1d3557;
 }
+
+pre {
+    background-color: #F2F1F1;
+    padding: 3px;
+    border-radius: 5px;
+}
