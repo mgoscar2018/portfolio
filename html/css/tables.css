@@ -1,27 +1,27 @@
-table.x, th.x, td.x {
+.tablaX table, th, td{
     border: 1px solid black;
     border-collapse: collapse; /* colapsa el borde de la tabla */
     padding: 5px;
 }
 
-caption.x {
+.tablaX caption {
     color: #e63946;
     font-family: 'Grape Nuts'; /*https://fonts.google.com/specimen/Grape+Nuts*/
     font-size: 20px;
     line-height: 20px;
 }
 
-th.x {
+.tablaX th {
     color: #f1faee;
     background-color: #1d3557;    
 }
 
 /*Renglones pares */
-tr.x:nth-child(even) {
+.tablaX tr:nth-child(even) {
     background-color: #f1faee;
 }
 
 /*Renglones impares */
-tr.x:nth-child(odd) {
+.tablaX tr:nth-child(odd) {
     background-color: #a8dadc;
 }
