@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulos en TypeScript</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <script src="modulos.js"></script>
+    <h4>Trabajando con módulos en TypeScript</h4>
+    <p>Para trabajar con módulos, es necesario instalar <em><b>webpack</b></em>, el cual nos permitirá utilizar un enfoque modular en el desarrollo de aplicaciones WEB</p>
+    <ol>
+        <li>En consola escribir <code>npm install webpack webpack-cli webpack-dev-server</code>, al finalizar nuestra carpeta del proyecto tendrá los archivos necesarios para desplegar la aplicación (package.json, package-lock.json, node_modules, etc)</li>
+        <li>Ahora instalar <em>TypeScript Loader</em>: <code>npm install typescript ts-loader --save-dev</code> para poder cargar nuestras clases. </li>
+        <li>Actualizar el archivo package.json con el comando: <code>npm init -y</code> </li>
+        <li>Abrir el archivo <em><b>package.json</b></em> y agregar lo siguiente detro de la variable "scripts": <code>"start": "webpack-dev-server --mode development"</code>. Esto permitirá ejecutar el comando "start", el cual iniciará nuestro webpack server en el modo de desarrollo. Debe quedar de la siguiente manera:
+            <pre>
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development"
+},
+            </pre>
+        </li>
+        <li>Crear archivo <em><b>webpack.config.js</b></em> y pegar lo siguiente:
+            <pre>
+const path = require('path');
+
+module.exports = {
+    entry: path.join(__dirname, '/NOMBRE_ARCHIVO.ts'),
+    output: {
+        filename: 'NOMBRE_ARCHIVO.js',
+        path: __dirname
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
+        ]
+    },
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"]
+    },
+};
+            </pre>
+        </li>
+        <li>Dentro del archivo <em><b>webpack.config.js</b></em> reemplazar <b>NOMBRE_ARCHIVO</b> por el nombre del archivo de entrada que tengamos (para este caso se llama "modulos"). </li>
+        <li>Iniciar nuestro servidor con <code>npm start</code></li>
+        <li>Verificar su funcionamiento aquí: <a href="http://localhost:8080/" target="_blank">LOCALHOST</a> </li>
+    </ol> 
+</body>
+</html>
