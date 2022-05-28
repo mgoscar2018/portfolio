@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with DOM and JavaScript</title>
+    <style>
+        .azul {
+            color: blue;
+        }
+        code {
+           background-color: #F2F1F1;
+            padding: 3px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo" class="azul">Contenido en Título</h1>
+    <p id="parr1" class="azul">Este es el párrafo 1</p>
+    <p id="parr2" class="azul">Este es el párrafo 2</p>
+    <button onclick="copiarValor()">Copiar valor de Título en Párrafo 1</button>
+    <button onclick="cambiarColor()">Modificar estilo CSS en Título</button>
+    <hr/>
+    <div id="res1"><em><b>Recuperación de elementos por tipo: </b><code>document.getElementsByTagName('p')</code></em><br/></div>
+    <hr/>    
+    <div id="res2"><em><b>Recuperación de elementos por clase: </b><code>document.getElementsByClassName('azul')</code></em><br/></div>
+    <hr/>    
+    <div id="res3"><em><b>Recuperación de todos los elementos por tipo y clase: </b><code>document.querySelectorAll('p.azul')</code></em><br/></div>
+    <hr/>
+    <form action="" id="form1">
+        Nombre: <input type="text" name="nombre" value="Oscar"> <br/>
+        Apellido: <input type="text" name="apellido" value="Miranda"> <br/>
+    </form>
+    <div><em><b>Recuperación de elementos del formulario: </b></em><br/></div>
+    <button onclick="mostrarValores()">Recuperar Valores</button>
+    <div id="res4"></div>    
+    <div><em><b>Recuperación de elementos del formulario individualmente: </b></em><br/></div>    
+    <button onclick="recValInd()">Recuperar Valores Individualmente</button>
+    <div id="res5"></div>
+    <hr/>
+    <img id="imagen" src="img/html5.png" alt="Logo HTML5"/><br/>
+    <button onclick="cambiarImg()">Cambiar atributo "src" en Imagen</button>
+    <hr/>
+    <h1 onclick="this.innerHTML='Título cambiado en evento click'">Manejo de Eventos con DOM HTML y javascript (click aquí)</h1>
+    <h4 onclick="cambio(this);">Otra manera de manejar el evento (click aquí)</h4>
+
+    <script>
+        
+        let parrafos = document.getElementsByTagName('p');
+        for (let i=0; i<parrafos.length; i++) {
+            document.getElementById("res1").innerHTML += `${parrafos[i].innerHTML} <br/>`;
+        }
+
+        let elementos = document.getElementsByClassName('azul');
+        console.log(`# elementos: ${elementos.length}`);
+        for (let elemento of elementos) {
+            document.getElementById("res2").innerHTML += `${elemento.innerHTML} <br/>`;
+        }
+
+        elementos = document.querySelectorAll('p.azul');
+        console.log(`# elementos: ${elementos.length}`);
+        for (let elemento of elementos) {
+            document.getElementById("res3").innerHTML += `${elemento.innerHTML} <br/>`;
+        }
+
+        function copiarValor() {
+            let t1 = document.getElementById("titulo").innerHTML;
+            document.getElementById("parr1").innerHTML += ' => '+t1;
+        }
+
+        function mostrarValores() {
+            let f1 = document.forms['form1'];
+            let texto = '';
+            for (let eform of f1) {
+                texto += eform.value+'<br/>';
+            }
+            console.log(texto);
+            document.getElementById('res4').innerHTML = texto;
+        }
+
+        function recValInd() {
+            let f2 = document.forms['form1'];
+            let texto = '';
+            let nInd = f2['nombre'];
+            let aInd = f2['apellido'];
+            texto = nInd.value+' '+aInd.value+'<br/>';
+            document.getElementById('res5').innerHTML = texto;
+        }
+
+        function cambiarImg() {
+            document.getElementById('imagen').src = "img/javascript.png";
+        }
+
+        function cambiarColor() {
+            document.getElementById('titulo').style.color = 'red';
+        }
+
+        function cambio(elemento) {
+            elemento.innerHTML = 'Con Función pasando por parámetro el elemento...';
+        }
+
+    </script>
+    
+</body>
+</html>
