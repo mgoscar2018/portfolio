@@ -32,6 +32,7 @@
     <form action="" id="form1">
         Nombre: <input type="text" name="nombre" value="Oscar"> <br/>
         Apellido: <input type="text" name="apellido" value="Miranda"> <br/>
+        Convertir (evento onchage): <input type="text" name="letras" placeholder="escribe en minúsculas" onchange="convMayus(this)"> <br/>
     </form>
     <div><em><b>Recuperación de elementos del formulario: </b></em><br/></div>
     <button onclick="mostrarValores()">Recuperar Valores</button>
@@ -45,7 +46,21 @@
     <hr/>
     <h1 onclick="this.innerHTML='Título cambiado en evento click'">Manejo de Eventos con DOM HTML y javascript (click aquí)</h1>
     <h4 onclick="cambio(this);">Otra manera de manejar el evento (click aquí)</h4>
-
+    <h3 id="titClick1">Título con evento asociado desde JavaScript (click aquí)</h3>
+    <h3 id="titMouse" onmouseover="rojo(this)" onmouseout="azul(this)">Probando onmouserover (rojo) y onmouseout (azul)</h3>
+    <h3 id="titMouse2" onmousedown="rojo(this)" onmouseup="azul(this)" onclick="verde(this)">Probando onmousedown (rojo), onmouseup (azul) y onclick (verde)</h3>
+    <h4>Evento <em>onfocus</em> al dar clic en la caja de texto y <em>onblur</em> al perder el foco.</h4>
+    Campo1: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/>
+    Campo2: <input type="text" onfocus="cambiar(this)" onblur="regresar(this)"/><br/>
+    Campo3: <input type="text" id="c3"/>
+    Campo4: <input type="text" id="c4"/><br/><br/>
+    <form id="grupoEven">
+        <fieldset>
+            campoX: <input type="text"><br/>
+            campoY: <input type="text"><br/>
+            campoZ: <input type="text"><br/>
+        </fieldset>
+    </form>
     <script>
         
         let parrafos = document.getElementsByTagName('p');
@@ -89,6 +104,10 @@
             document.getElementById('res5').innerHTML = texto;
         }
 
+        function convMayus(nombreInput) {
+            nombreInput.value = nombreInput.value.toUpperCase();
+        }
+
         function cambiarImg() {
             document.getElementById('imagen').src = "img/javascript.png";
         }
@@ -100,6 +119,59 @@
         function cambio(elemento) {
             elemento.innerHTML = 'Con Función pasando por parámetro el elemento...';
         }
+
+        // Asociando un evento a un elemento desde JavaScript
+        document.getElementById('titClick1').onclick = funcionCambio;
+        function funcionCambio(ele) {
+            document.getElementById('titClick1').style.color = 'red';
+        }
+
+        function rojo(elemento) {
+            elemento.style.color = 'red';
+            console.log('cambio a Rojo');
+        }
+        function azul(elemento) {
+            elemento.style.color = 'blue';
+            console.log('cambio a Azul');
+        }
+        function verde(elemento) {
+            elemento.style.color = 'green';
+            console.log('cambio a Verde');
+        }
+
+        function cambiar(elementoInput) {
+            elementoInput.style.background = 'yellow';
+        }
+        function regresar(elementoInput) {
+            elementoInput.style.background = 'white';
+        }
+
+        // addEventListener
+        document.getElementById('c3').addEventListener('focus',cambiaFVerde);
+        document.getElementById('c3').addEventListener('blur',cambiaFBlanco);
+        // addEventListener utilizando función fleca
+        document.getElementById('c4').addEventListener('focus',(evento)=>{
+            evento.target.style.background = 'pink';
+        });
+        document.getElementById('c4').addEventListener('blur',(evento)=>{
+            evento.target.style.background = 'white';
+        });
+
+        function cambiaFVerde(evento) {
+            evento.target.style.background = 'green';
+        }
+        function cambiaFBlanco(evento) {
+            evento.target.style.background = 'white';
+        }
+
+        //Agregando addEventListener a todos los elementos de un formulario
+        const formulario = document.getElementById('grupoEven');
+        formulario.addEventListener('focus',(evento) => {
+            evento.target.style.background = 'purple';
+        },true);
+        formulario.addEventListener('blur',(evento) => {
+            evento.target.style.background = 'white';
+        },true);
 
     </script>
     
