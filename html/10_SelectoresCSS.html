@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores CSS</title>
+
+    <style>        
+        * { /*selector universal, aplica para todos los elementos en pantalla */            
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        p { /* selector por tipo de elemento */
+            border: solid 1px black;
+        }
+
+        em, b { /* podemos elegir varios elementos separándolos por coma */
+            color:  darkblue;
+        }
+
+        .clase1 { /* selecciona a todos los elementos que tengan la clase llamada "clase1" */
+            font-size: 28px;
+        }
+
+        .clase2 { /* cambia el color de fondo a todos los elementos que tengan la clase "clase2" */
+            background-color: aquamarine;
+        }
+
+        .clase1, .clase2 { /* También se pueden seleccionar varias clases separándolos por coma */
+            border-style: dashed;
+        }
+
+        #iden1 { /* con el símbolo "#" podemos seleccionar al elemento que contenga ese identificador */
+            background-color: pink;
+        }
+
+        /* También se pueden seleccionar varios identificadores, recordar que el identificador es único, 
+            así que para este ejemplo, se está seleccionando dos elementos:*/
+        #iden1, #iden2 { 
+            border-style: dotted; 
+        }
+        
+        .lista2 li { /* podemos seleccionar elementos internos de una clase */
+            color: blue;
+        }
+
+        .clase1 em, .clase1 b { /*Seleccionando elementos "em" y "b" de la clase "clase1" */
+            color: darkred;
+        }
+
+        #iden1 em, #iden1 b { /*Seleccionando elementos "em" y "b" del elemento con identificador "iden1" */
+            color: crimson;
+        } 
+
+    </style>
+</head>
+<body>
+    <h1>En este lugar veremos las diferentes maneras en que se pueden identificar los elementos para aplicarles estilos CSS</h1>
+    <p>Con el selector <b>universal "*"</b> cambiamos el tipo de letra (Verdana) a todos los elementos</p>
+    <p class="clase1">Este párrafo tiene una clase: <em>clase1</em>, al que se le cambió el <b>tamaño de la letra a 28px.</b></p>
+    <p class="clase1 clase2">Se pueden asignar muchas clases a un mismo elemento, este párrafo tiene dos clases: <em>clase1</em> y <em>clase2</em>.</p>
+    <p id="iden1">También se puede utilizar el <em>identificador "id"</em>, pero a diferencia de las clases, sólo puede tener un identificar cada elemento, en este párrafo se llama <b>"iden1"</b>.</p>    
+    <p id="iden2">Este párrafo tiene el identificador llamado <b>"iden2"</b>.</p>
+    <h4>Lista 1</h4>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3 <code>con etiqueda CODE</code></li>
+    </ul>
+    <h4>Lista 2</h4>
+    <ul class="lista2">
+        <li>Elemento A</li>
+        <li>Elemento B</li>
+        <li>Elemento C <code>con etiqueda CODE</code></li>
+    </ul>
+
+</body>
+</html>
