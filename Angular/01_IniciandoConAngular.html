@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciando con Angular</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h4>Instalación de Angular</h4>
+    <p>Desde una terminal en modo "administrador" ejecutar el siguiente comando:<br/>
+        <code>npm install -g @angular/cli</code>
+    </p>
+    <h4>Crear aplicación llamada "primerApp"</h4>
+    <code>ng new nombre-aplicacion</code>
+    <h4>Ejecutar aplicación y verificar que está funcionando correctamente</h4>
+    <p>Entrar al directorio que tiene el nombre de nuestra aplicación "primerApp" y ejecutar el siguiente comando:</p>
+    <code>ng serve -o</code><br/>
+    <em>Para detener el servidor de Angular, pulsar <b>CTRL-C</b> dentro de la terminal en la que ejecutamos el servidor</em><br/>    
+    <h4>Ejecución del servidor desde <em>Visual Studio Code</em></h4>
+    <p>
+        <em>Al trabajar con Angular, es importante siempre abrir <b>Visual Studio Code</b> con privilegios de <b>Administrador</b> por los comandos que se requieren ejecutar en consola.</em><br/>
+        En la terminal de Visual Studio Code, verificar que estamos dentro de la carpeta principal de nuestra aplicación y ejecutar el comando para levantar el servidor: <code>ng serve -o</code><br/>
+        <mark><b>NOTA:</b></mark> En caso de mostrar un error que indica que <b>la ejecución de scripts está deshabilitada</b>, realizar lo siguiente:
+        <ol>
+            <li>Abrir como administrador la aplicación "Windows PowerShell" </li>
+            <li>Escribir el siguiente comando: <code>Set-ExecutionPolicy Unrestricted</code></li>
+            <li>Aceptar todos los mensajes que muestre</li>
+            <li>Comprobar que los valores ya fueron modificados, al escribir: <code>Get-ExecutionPolicy</code> debemos obtener como respuesta <em>Unrestricted</em></li>
+        </ol>
+
+    </p>
+    <h4>Trabajar con proyecto descargado de Github o ya existente (recrear carpeta <em>node_modules</em>)</h4>
+    <p>En la terminal, posicionarse dentro de la carpeta del proyecto y ejecutar el siguiente comando: <code>npm install</code></p>
+    <h4>Extensiones de Visual Studio Code a instalar</h4>
+    <ul>
+        <li>Angular Language Service</li>
+        <li>Angular Files</li>
+        <li>Angular Support</li>
+        <li>Angular 2 TypeScript Emmet</li>
+        <li>Prettier - Code formatter</li>
+        <li>Bracket Pair Colorizer</li>
+        <li>Bootstrap 4, Font awesome 4, Font Awesome 5 Free & Pro snippets</li>
+    </ul>
+</body>
+</html>
