@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posicionando elementos</title>
+    <style>
+        /* Reset de estilos */
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .caja {
+            background: rgb(61, 163, 211);
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            /* float: left; /* posiciona las cajar en forma horizontal recargadas del lado izquierdo */
+        }
+
+        .posicion {
+            background: rgb(22, 121, 22);
+            /* position: relative; /* Con esta posición el espacio se respeta y las instrucciones mueven a partir de aquí*/
+            /*position: absolute; /* Se coloca en pantalla y la posición es tomada a partir del navegador, sube o baja en pantalla al mover el scroll */
+            position: fixed; /* Se fija en la posición indicada y no se mueve de ese lugar aún moviendo el scroll */
+            left: 200px; /* Mueve 200px desde la izquierda */
+            top: 50px; /* Mueve 50 pixeles desde arriba */
+        }
+
+        /* Al colocar la posición relativa en la caja padre y la caja hija en absoluta, al moverlo de posición
+        respetará su ubicación adentro del padre */
+        .padre {
+            position: relative; 
+            background: pink;
+        }
+
+        .hija {
+            background: red;
+            width: 50px;
+            height: 50px;            
+            position: absolute;
+            bottom: 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="caja"></div>
+    <div class="caja posicion"></div>
+    <div class="caja"></div>
+    <div class="caja"></div>
+    <div class="caja padre">
+        <div class="caja hija"></div>
+    </div>
+    <div class="caja"></div>
+    <div class="caja"></div>
+    <div class="caja"></div>
+    
+</body>
+</html>
