@@ -5,6 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Elements</title>
+
+    <style>
+        #conSombra {
+            color: darkblue;
+            font-size: 20px;
+            text-shadow: 2px 2px 2px green;
+        }
+
+        #dosSombras {
+            color: darkblue;
+            font-size: 20px;
+            text-shadow: 4px 4px 2px green, 8px 8px 1px red;
+        }
+
+        #elemSomb {
+            width: 150px;
+            height: 50px;
+            background-color: aquamarine;
+            box-shadow: 4px 4px 3px gray;
+        }
+    </style>
 </head>
 <body>
     <h1>Título "h1"</h1>
@@ -39,6 +60,11 @@
             <li style="border: 10px solid hsla(240, 100%, 27%,.5);">Por código hsla (con transparencia) <code>style="border: 10px solid hsla(240, 100%, 27%,.5);"</code></li>
             <li style="border: 10px solid #080;">Con código hexadecimal<code>style="border: 10px solid #008000;"</code>. NOTA: si en el código dos o más digitos son iguales, puede ser simplificado a uno solo de la siguiente manera: #<mark>00</mark>8<mark>000</mark> por #080</li>
         </ol>
+        <h4>Sombras</h4>
+        <p id="conSombra">Texto con sombra</p>
+        <p id="dosSombras">Texto con dos sombras</p>
+        <div id="elemSomb">Caja con sombra</div>
+        <h4>Links de utilidad:</h4>
         En <a href="https://htmlcolorcodes.com/color-names/" target="_blank">ESTA PÁGINA</a> podemos encontrar la paleta de colores con sus respectivos diferentes códigos y nombres. <br/>
         En <a href="https://coolors.co/" target="_blank">ESTA OTRA PÁGINA</a> encontraremos paletas con combinaciones de colores que están de moda o las más utilizadas. <br/>
         En <a href="https://www.htmlquick.com/es/" target="_blank">ESTA PÁGINA</a> contiene información detallada de muchos elementos HTML.
