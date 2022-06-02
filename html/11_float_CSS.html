@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicando estilos a parrafos e imágenes</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .main {
+            background: rgb(107, 201, 107);
+            width: 90%; /* ancho del 90% de la pantalla */
+            margin: auto; /* posiciona al centro */
+            padding: 10px;
+            overflow: hidden; /* forza a que los elementos flotantes estén dentro del contenedor padre */
+        }
+
+        .caja {
+            width: 500px;
+            height: 200px;
+            margin: 20px;            
+        }
+
+        .img {
+            float: left;
+            width: auto;
+        }
+
+        .text {
+            float: left;
+        }
+
+        /* ======= ESTILOS PARA ARTÍCULOS ============ */
+        .articulo {
+            background: rgb(40, 142, 201);
+            width: 70%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .articulo h2 {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .articulo img {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <div class="caja img">
+            <img src="https://loremflickr.com/320/240" height="200px">
+        </div>
+        <div class="caja text">
+            <h2>Soy un encabezado</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, nostrum. Nulla voluptate est 
+                nostrum praesentium ad velit voluptatibus mollitia perspiciatis repudiandae, iste natus tenetur 
+                necessitatibus nam eveniet vitae? Atque, perferendis?
+            </p>
+        </div>
+    </main>
+    <article class="articulo">
+        <h2>Encabezado del Artículo</h2>
+        <img src="https://loremflickr.com/320/240/dog" width="200px">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit deserunt ad assumenda veniam, numquam distinctio! Aspernatur excepturi aperiam laborum minus facilis at, voluptates enim pariatur consectetur nesciunt quaerat quia magni.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla dolorem mollitia illum recusandae 
+            placeat minus possimus ducimus deleniti id, facere sunt ex amet commodi dolor, ab distinctio 
+            perferendis rerum esse.        
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, magni voluptatibus velit id vero pariatur et cum obcaecati ab animi, aut necessitatibus quia tenetur unde maxime non libero, ducimus aspernatur.</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis qui, asperiores porro odit totam maxime est consequatur ipsam repudiandae labore tempora voluptates autem facilis voluptas quisquam consectetur tenetur magni rem.</p>
+    </article>
+    
+</body>
+</html>
