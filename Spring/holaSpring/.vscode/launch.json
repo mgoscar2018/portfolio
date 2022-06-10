@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HolaSpringApplication<holaSpring>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "dev.mgoscar.holaSpring.HolaSpringApplication",
+            "projectName": "holaSpring",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
