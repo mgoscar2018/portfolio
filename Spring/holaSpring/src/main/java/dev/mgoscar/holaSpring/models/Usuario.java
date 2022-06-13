@@ -1,11 +1,32 @@
 package dev.mgoscar.holaSpring.models;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
+@ToString //genera automáticamente el toString a todos los atributos del objeto Usuario
 public class Usuario {
+
+    @Id
+    @Setter @Getter @Column(name = "id") //"id" es el nombre de la columna como está en la BD
     private Long id;
+    @Getter @Setter //Esta anotación es gracias a Lombok https://projectlombok.org/setup/maven
+    @Column(name = "nombre")
     private String nombre;
+    @Getter @Setter @Column(name = "apellido")
     private String apellido;
+    @Getter @Setter @Column(name = "email")
     private String email;
+    @Getter @Setter @Column(name = "telefono")
     private String telefono;
+    @Getter @Setter @Column(name = "password")
     private String password;
 
     /*
@@ -14,18 +35,18 @@ public class Usuario {
      * - Elegir "Generate Getters and Setters..."
      * - Seleccionar los campos a los que se quieren crear los métodos get y set
      */
-    
+    /*
     public Long getId() {
         return id;
     }
     public void setId(Long id) {
         this.id = id;
     }
-    
+
      public String getNombre() {
         return nombre;
     }
-    
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -54,7 +75,7 @@ public class Usuario {
         this.password = password;
     }
 
-    
-    
+
+    */
     
 }
