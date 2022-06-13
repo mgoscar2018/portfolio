@@ -19,10 +19,10 @@ public class usuarioDaoImp implements usuarioDao{
     @Transactional
     public List<Usuario> getUsuarios() {
         String consulta = "FROM Usuario"; // "Usuario" es el nombre de la clase, no de la tabla
-        /*
-        List<Usuario> resultado = entityManager.createQuery(consulta).getResultList();
+        
+        List<Usuario> resultado = entityManager.createQuery(consulta).getResultList();         
         return resultado;
-         */
-        return entityManager.createQuery(consulta).getResultList();
+         
+        //return entityManager.createQuery(consulta).getResultList();
     }
 }

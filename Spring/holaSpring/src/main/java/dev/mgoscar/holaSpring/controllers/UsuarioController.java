@@ -1,18 +1,21 @@
 package dev.mgoscar.holaSpring.controllers;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.mgoscar.holaSpring.dao.usuarioDao;
 import dev.mgoscar.holaSpring.models.Usuario;
 
 @RestController
 public class UsuarioController {
 
+    @Autowired
+    private usuarioDao usrDao;
     /*
      * @RequestMapping. Is used to map web requests to Spring Controller methods.
      * Result in: http://localhost:8080/prueba
@@ -20,7 +23,7 @@ public class UsuarioController {
             return List.of("Manzana","Pera","Melón","Sandia");
         }
      */
-    @RequestMapping(value="usuario/{id}") //recibe id dinámica
+    @RequestMapping(value="api/usuario/{id}") //recibe id dinámica
     public Usuario getUsuario(@PathVariable Long id) {
         Usuario usr = new Usuario();
         usr.setId(id);
@@ -31,36 +34,9 @@ public class UsuarioController {
         return usr;
     }
 
-    @RequestMapping(value="usuarios") 
+    @RequestMapping(value="api/usuarios") 
     public List<Usuario> getUsuarios() {
-        List<Usuario> usuarios = new ArrayList<>();
-
-        Usuario usr = new Usuario();
-        usr.setId(123L);
-        usr.setNombre("Oscar");
-        usr.setApellido("Miranda");
-        usr.setEmail("mgoscar@gmail.com");
-        usr.setTelefono("55 1234 5678");
-
-        Usuario usr2 = new Usuario();
-        usr2.setId(456L);
-        usr2.setNombre("Homero");
-        usr2.setApellido("Simpson");
-        usr2.setEmail("hsimpson@correo.com");
-        usr2.setTelefono("55 3432 3678");
-
-        Usuario usr3 = new Usuario();
-        usr3.setId(789L);
-        usr3.setNombre("Lisa");
-        usr3.setApellido("Simpson");
-        usr3.setEmail("lsimpson@correo.com");
-        usr3.setTelefono("77 7234 5553");
-
-        usuarios.add(usr);
-        usuarios.add(usr2);
-        usuarios.add(usr3);
-
-        return usuarios;
+        return usrDao.getUsuarios();
     }
 
     @RequestMapping(value="editar")
