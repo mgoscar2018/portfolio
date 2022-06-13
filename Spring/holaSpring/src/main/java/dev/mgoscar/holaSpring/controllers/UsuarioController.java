@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import dev.mgoscar.holaSpring.dao.usuarioDao;
 import dev.mgoscar.holaSpring.models.Usuario;
 
@@ -59,6 +61,16 @@ public class UsuarioController {
 
     @RequestMapping(value="api/usuarios",method = RequestMethod.POST)
     public void registrarUsr(@RequestBody Usuario nvoUsr) { //la anotación @RequestBody convierte el JSON recibido en un usuario automáticamente
+
+        //Hash a la contraseña (cifrado)
+        Argon2 a2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        //1 iteración (entre más iteraciones, más seguro pero más tardado)
+        //1024 de memoria
+        //1 paralelismo - número de procesadores
+        String pswHash = a2.hash(1, 1024, 1, nvoUsr.getPassword().toCharArray());
+        nvoUsr.setPassword(pswHash);
+
+        //Solicitar registrar al usuario en la BD
         usrDao.registrar(nvoUsr);
     }
 
