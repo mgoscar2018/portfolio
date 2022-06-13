@@ -38,4 +38,15 @@ public class usuarioDaoImp implements usuarioDao{
     public void registrar(Usuario nvoUsr) {
         em.merge(nvoUsr);
     }
+
+    @Override
+    public boolean verificarEmailPsw(Usuario loginUsr) {
+        String query = "FROM Usuario WHERE email = :email AND password = :password"; // "Usuario" es el nombre de la clase, no de la tabla
+        List<Usuario> lista = em.createQuery(query,Usuario.class)
+            .setParameter("email", loginUsr.getEmail())
+            .setParameter("password", loginUsr.getPassword())
+            .getResultList();
+        
+        return !lista.isEmpty();
+    }
 }

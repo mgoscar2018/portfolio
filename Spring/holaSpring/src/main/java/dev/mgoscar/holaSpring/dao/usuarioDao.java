@@ -11,4 +11,6 @@ public interface usuarioDao {
 
     void registrar(Usuario nvoUsr);
 
+    boolean verificarEmailPsw(Usuario loginUsr);
+
 }
