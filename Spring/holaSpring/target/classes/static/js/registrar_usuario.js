@@ -3,6 +3,7 @@ async function altaUsuario() {
     datos.nombre = document.getElementById('txtNombre').value;
     datos.apellido = document.getElementById('txtApellido').value;
     datos.email = document.getElementById('txtEmail').value;
+    datos.telefono = document.getElementById('txtTelefono').value;
     datos.password = document.getElementById('txtPassword').value;
 
     let repPsw = document.getElementById('txtRepetirPsw').value;

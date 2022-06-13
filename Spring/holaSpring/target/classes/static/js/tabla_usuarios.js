@@ -24,7 +24,7 @@ async function cargarUsuarios() {
     resultado += `
     <tr>
       <td>${usuario.id}</td>
-      <td>${usuario.nombre}</td>
+      <td>${usuario.nombre} ${usuario.apellido}</td>
       <td>${usuario.email}</td>
       <td>${tel}</td>
       <td>
