@@ -2,7 +2,7 @@ package dev.mgoscar.holaSpring.dao;
 
 import dev.mgoscar.holaSpring.models.Usuario;
 import org.springframework.stereotype.Repository;
-//import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-//@Transactional //Se comenta ya que en este lugar por el momento no le veo la utilidad 
 public class usuarioDaoImp implements usuarioDao{
 
     @PersistenceContext
@@ -24,5 +23,19 @@ public class usuarioDaoImp implements usuarioDao{
         return resultado;
          */
         return em.createQuery(consulta,Usuario.class).getResultList();        
+    }
+
+    @Override
+    @Transactional //util al invocar al método de remove en la función eliminar
+    public void eliminar(Long id) {
+        Usuario usuario = em.find(Usuario.class, id);
+        System.out.println("....ELIMINANDO=>"+usuario);
+        em.remove(usuario);        
+    }
+
+    @Override
+    @Transactional //también se ocupa con método "merge"
+    public void registrar(Usuario nvoUsr) {
+        em.merge(nvoUsr);
     }
 }

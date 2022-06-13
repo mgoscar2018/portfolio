@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.mgoscar.holaSpring.dao.usuarioDao;
@@ -23,7 +25,8 @@ public class UsuarioController {
             return List.of("Manzana","Pera","Melón","Sandia");
         }
      */
-    @RequestMapping(value="api/usuario/{id}") //recibe id dinámica
+    //@RequestMapping(value="api/usuarios/{id}",method = RequestMethod.GET) //por defecto es de tipo GET
+    @RequestMapping(value="api/usuarios/{id}") //recibe id dinámica
     public Usuario getUsuario(@PathVariable Long id) {
         Usuario usr = new Usuario();
         usr.setId(id);
@@ -48,15 +51,15 @@ public class UsuarioController {
         usr.setTelefono("55 1234 5678");        
         return usr;
     }
+    
+    @RequestMapping(value="api/usuarios/{id}",method = RequestMethod.DELETE)
+    public void eliminar(@PathVariable Long id) {
+        usrDao.eliminar(id);
+    }
 
-    @RequestMapping(value="eliminar")
-    public Usuario eliminar() {
-        Usuario usr = new Usuario();
-        usr.setNombre("Oscar");
-        usr.setApellido("Miranda");
-        usr.setEmail("mgoscar@gmail.com");
-        usr.setTelefono("55 1234 5678");        
-        return usr;
+    @RequestMapping(value="api/usuarios",method = RequestMethod.POST)
+    public void registrarUsr(@RequestBody Usuario nvoUsr) { //la anotación @RequestBody convierte el JSON recibido en un usuario automáticamente
+        usrDao.registrar(nvoUsr);
     }
 
     @RequestMapping(value="buscar")

@@ -19,18 +19,28 @@ async function cargarUsuarios() {
 
   let resultado = '';
   for (let usuario of usuarios) {
+    let tel = usuario.telefono == null?'-':usuario.telefono; //Para evitar que coloque NULL cuando no tenga teléfono
+
     resultado += `
     <tr>
       <td>${usuario.id}</td>
       <td>${usuario.nombre}</td>
       <td>${usuario.email}</td>
-      <td>${usuario.telefono}</td>
+      <td>${tel}</td>
       <td>
-        <a href="#" class="btn btn-danger btn-circle btn-sm">
+        <a href="#" onclick="eliminarUsr(${usuario.id})" class="btn btn-danger btn-circle btn-sm">
           <i class="fas fa-trash"></i>
         </a>
       </td>
     </tr>`;
   }
   document.querySelector("#tablaUsuarios tbody").outerHTML = resultado;
+}
+
+async function eliminarUsr(id) {
+  if (confirm('¿Desea eliminar este usuario?')) {    
+    const request = await fetch('api/usuarios/'+id,{method:'DELETE'});
+  }
+
+  location.reload();
 }

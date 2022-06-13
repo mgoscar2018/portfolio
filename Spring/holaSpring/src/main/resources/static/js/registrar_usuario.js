@@ -1,0 +1,22 @@
+async function altaUsuario() {
+    let datos = {};
+    datos.nombre = document.getElementById('txtNombre').value;
+    datos.apellido = document.getElementById('txtApellido').value;
+    datos.email = document.getElementById('txtEmail').value;
+    datos.password = document.getElementById('txtPassword').value;
+
+    let repPsw = document.getElementById('txtRepetirPsw').value;
+
+    if (repPsw != datos.password) 
+        alert('La contraseña que escribiste es diferente');
+    else {
+        const request = await fetch('api/usuarios',{
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(datos)
+        });
+    }
+}

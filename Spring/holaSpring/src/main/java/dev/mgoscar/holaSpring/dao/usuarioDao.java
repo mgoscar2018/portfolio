@@ -6,4 +6,9 @@ import dev.mgoscar.holaSpring.models.Usuario;
 
 public interface usuarioDao {
     List<Usuario> getUsuarios();
+
+    void eliminar(Long id);
+
+    void registrar(Usuario nvoUsr);
+
 }
