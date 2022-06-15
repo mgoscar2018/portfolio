@@ -55,4 +55,23 @@ public class usuarioDaoImp implements usuarioDao{
         Argon2 ar2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         return ar2.verify(pswHashed, loginUsr.getPassword().toCharArray());        
     }
+
+    @Override
+    public Usuario obtenerUsrPorCredenciales(Usuario loginUsr) {
+        String query = "FROM Usuario WHERE email = :email"; //:email es un parámetro, se utiliza de esta manera para evitar SQL Injection
+        List<Usuario> lista = em.createQuery(query,Usuario.class)
+            .setParameter("email", loginUsr.getEmail())
+            .getResultList();
+        
+        if (lista.isEmpty()) return null; //En caso de no encontrar al usuario
+
+        String pswHashed = lista.get(0).getPassword();
+        Argon2 ar2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        
+        if(ar2.verify(pswHashed, loginUsr.getPassword().toCharArray())) {
+            return lista.get(0); //Devuelve el usuario en caso de tener las credenciales correctas
+        }
+        return null;
+        
+    }
 }

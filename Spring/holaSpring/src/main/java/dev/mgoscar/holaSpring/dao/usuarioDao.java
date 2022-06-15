@@ -13,4 +13,6 @@ public interface usuarioDao {
 
     boolean verificarEmailPsw(Usuario loginUsr);
 
+    Usuario obtenerUsrPorCredenciales(Usuario loginUsr);
+
 }
