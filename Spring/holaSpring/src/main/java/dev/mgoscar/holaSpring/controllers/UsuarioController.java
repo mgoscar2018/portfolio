@@ -1,11 +1,12 @@
 package dev.mgoscar.holaSpring.controllers;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,12 +15,16 @@ import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import dev.mgoscar.holaSpring.dao.usuarioDao;
 import dev.mgoscar.holaSpring.models.Usuario;
+import dev.mgoscar.holaSpring.utils.JWTUtil;
 
 @RestController
 public class UsuarioController {
 
     @Autowired
     private usuarioDao usrDao;
+
+    @Autowired
+    private JWTUtil jwtUtil;
     /*
      * @RequestMapping. Is used to map web requests to Spring Controller methods.
      * Result in: http://localhost:8080/prueba
@@ -40,7 +45,13 @@ public class UsuarioController {
     }
 
     @RequestMapping(value="api/usuarios") 
-    public List<Usuario> getUsuarios() {
+    public List<Usuario> getUsuarios(@RequestHeader(value="Authorization") String token) {
+
+        //Verificar que el token sea correcto
+        String usuarioID = jwtUtil.getKey(token);
+        if (usuarioID == null) {
+            return new ArrayList<>(); //Devuelve lista vacia en caso de no estar autorizado
+        }
         return usrDao.getUsuarios();
     }
 

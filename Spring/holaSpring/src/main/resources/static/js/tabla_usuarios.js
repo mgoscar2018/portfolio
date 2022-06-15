@@ -8,10 +8,7 @@ $(document).ready(function() {
 async function cargarUsuarios() {
   const request = await fetch('api/usuarios',{
     method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
+    headers: getHeaders()
   });
 
   const usuarios = await request.json();
@@ -37,9 +34,26 @@ async function cargarUsuarios() {
   document.querySelector("#tablaUsuarios tbody").outerHTML = resultado;
 }
 
+function getHeaders() {
+  return {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': localStorage.token
+  };
+} 
+
 async function eliminarUsr(id) {
   if (confirm('¿Desea eliminar este usuario?')) {    
-    const request = await fetch('api/usuarios/'+id,{method:'DELETE'});
+    const request = await fetch('api/usuarios/'+id,{
+      method:'DELETE',
+      headers: getHeaders()
+      /* Lo siguiente se mandó a una función para que quedara reutilizable
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+      }*/
+    });
   }
 
   location.reload();

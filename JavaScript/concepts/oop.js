@@ -80,7 +80,7 @@ imprimir(empleado1);
 
 /*
  =========   basic principles of OOP  =========
- 1) Encapsulation.- Encapsulation is achieved when each object keeps its state private, inside a class. 
+ 1) Encapsulation.- Encapsulation is achieved (logrado) when each object keeps its state private, inside a class. 
     Other objects don’t have direct access to this state. Instead, they can only call a list of public functions.
  2) Abstraction.- This mechanism should hide internal implementation details. It should only reveal operations 
     relevant for the other objects. Abstraction can be thought of as a natural extension of encapsulation.
@@ -93,7 +93,7 @@ imprimir(empleado1);
     4.2 Override: This is only possible if a subclass (or) sister class has the same method as the parent class, 
         has the same parameter list, same return type, and only has different behavior.
 
- Object.-
+ Object.- An object can be defined as a data field that has unique attributes and behavior.
  Class.- A class is like a template from which new objects are created.
 
  https://www.sanfoundry.com/object-oriented-programming-questions-answers-constructors-overloading/

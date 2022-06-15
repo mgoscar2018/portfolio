@@ -31,5 +31,7 @@ avion.abordarTransporte();
 let arregloNumeros;
 arregloNumeros = [1, 2, 3, 4];
 //arregloNumeros = ["Oscar",1,2,3]; //ERROR: No se puede combinar tipos
+let arregloNum = [2, 3, 5, 7];
 console.log(arregloNumeros);
 console.log(arregloNumeros[1]);
+console.log(arregloNum);
