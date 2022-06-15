@@ -19,5 +19,8 @@ async function altaUsuario() {
           },
           body: JSON.stringify(datos)
         });
+
+        alert('¡La cuenta fue creada con éxito!');
+        window.location.href = 'login.html';
     }
 }
