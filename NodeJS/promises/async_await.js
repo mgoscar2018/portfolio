@@ -17,6 +17,10 @@ async function resultado() { //si no utilizamos "async y await" se ejecuta la fu
     console.log('Resultado invocado');
     const aleatorio= await numeroAleatorio(); //sin el "await" devuelve [object Promise], con el await devuelve el número aleatorio
     console.log(`Resultado: ${aleatorio}`);
+    for (let i=0;i<10000;i++) {
+        let j=i;
+    }
+    console.log('fin del for');
 }
 
 resultado();
